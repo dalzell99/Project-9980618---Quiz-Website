@@ -251,7 +251,7 @@ function populateQuizzes() {
                         pointsRewards += (k + 1) + place[(k > 3 ? 3 : k)] + ') ' + pointsRewardsArray[k] + '<br>';
                     }
                 } else {
-                    pointsRewards = "5 quizeto = 100%<br />3 quizeto = 95-99%<br />1 quizeto = 90-94%";
+                    pointsRewards = "5 bonus qzetos = 100% correct answer<br />3 bonus qzetos = 95-99% correct answer<br />1 bonus qzetos = 90-94% correct answer";
                 }
 
                 for (var m = 0; m < rulesArray.length; m += 1) {
@@ -531,18 +531,18 @@ function uploadQuiz() {
         var endTime = date.add(2, 'minutes').utc().toISOString();
 
         if ($("#createQuizType").val() == 'free') {
-            rules.push("User need free quizeto balance to register in this quiz");
+            rules.push("User need free qzetos balance to register in this quiz");
             rules.push("User can unregister from the quiz until 10 minutes before the start of the quiz");
             rules.push("No minimum participant required to start this quiz");
-            rules.push("Prize pool contains bonus quzeto which can be redemed after conversting to real quizeto");
-            rules.push("Winning criteria: 100% correct answer = 5 Bonus Quizeto, 95-99% correct answer = 3 Bonus Quizeto, 90-94% correct answer = 1 Bonus Quizeto");
+            rules.push("Prize pool contains bonus qzetos which can be redemed after conversting to real qzetos");
+            rules.push("Winning criteria: 100% correct answer = 5 Bonus Qzetos, 95-99% correct answer = 3 Bonus Qzetos, 90-94% correct answer = 1 Bonus Qzetos");
         } else {
-            rules.push("User need real quizeto balance to register in this quiz");
-            rules.push("Prize pool contains redeemable real quizeto");
+            rules.push("User need real qzetos balance to register in this quiz");
+            rules.push("Prize pool contains redeemable real qzetos");
             rules.push("Winners will be decided based on maximum number of correct answer given in minimum time");
             rules.push("User can unregister from the quiz until 10 minutes before the start of the quiz");
             rules.push("Incase of less number of participant, quiz will be automatically cancelled");
-            rules.push("Quizeto will be refunded to respective user account if quiz gets cancelled");
+            rules.push("Qzetos will be refunded to respective user account if quiz gets cancelled");
         }
 
         $.post('./php/quizzes/createnewquiz.php', {
@@ -1403,19 +1403,20 @@ function populateUsers() {
             html += '<thead>';
             html += '    <tr>';
             html += '        <th>Username</th>';
-            html += '        <th>Real Quizetos</th>';
-            html += '        <th>Bonus Quizetos</th>';
-            html += '        <th>Free Quizetos</th>';
+            html += '        <th>Real Qzetos</th>';
+            html += '        <th>Bonus Qzetos</th>';
+            html += '        <th>Free Qzetos</th>';
             html += '        <th>Email</th>';
             html += '        <th>Mobile</th>';
+            html += '        <th>Pancard</th>';
             html += '        <th>First Name</th>';
             html += '        <th>Last Name</th>';
-            html += '        <th>Gender</th>';
-            html += '        <th>DOB</th>';
+
+
             html += '        <th>City</th>';
             html += '        <th>Pincode</th>';
             html += '        <th>State</th>';
-            html += '        <th>Country</th>';
+
             html += '        <th>Profile Image</th>';
             html += '    </tr>';
             html += '</thead>';
@@ -1430,14 +1431,13 @@ function populateUsers() {
                 html += '    <td contenteditable="true">' + userArray[i].freeUnconvertablePointsBalance + '</td>';
                 html += '    <td contenteditable="true">' + userArray[i].email + '</td>';
                 html += '    <td contenteditable="true">' + userArray[i].mobile + '</td>';
+                html += '    <td contenteditable="true">' + userArray[i].pancard + '</td>';
                 html += '    <td contenteditable="true">' + userArray[i].firstName + '</td>';
                 html += '    <td contenteditable="true">' + userArray[i].lastName + '</td>';
-                html += '    <td contenteditable="true">' + userArray[i].gender + '</td>';
-                html += '    <td contenteditable="true">' + userArray[i].DOB + '</td>';
                 html += '    <td contenteditable="true">' + userArray[i].city + '</td>';
                 html += '    <td contenteditable="true">' + userArray[i].pincode + '</td>';
                 html += '    <td contenteditable="true">' + userArray[i].state + '</td>';
-                html += '    <td contenteditable="true">' + userArray[i].country + '</td>';
+
                 html += '    <td><img class="userProfileImages" src="./images/users/' + (userArray[i].imageURL === '' ? 'missing.png' : userArray[i].imageURL) + '" alt="" /></td>';
                 html += '</tr>';
             }
@@ -1547,8 +1547,8 @@ function showUserInfo(username) {
             html += "    <table id='userInfoModalConversionTable'>";
             html += "        <tr>";
             html += "            <th>Date</th>";
-            html += "            <th>Bonus Quizetos</th>";
-            html += "            <th>Real Quizetos</th>";
+            html += "            <th>Bonus Qzetos</th>";
+            html += "            <th>Real Qzetos</th>";
             html += "        </tr>";
             response[1].forEach(function (conversion) {
                 var date = moment(conversion.date).format('ddd Do MMM YYYY')
@@ -1607,9 +1607,9 @@ function showUserInfo(username) {
             html += "            <th>Date</th>";
             html += "            <th>Quiz Name</th>";
             html += "            <th>Registration Fee</th>";
-            html += "            <th>Quizetos Won</th>";
-            html += "            <th>Tax Amount</th>";
-            html += "            <th>Net Quizetos</th>";
+            html += "            <th>Qzetos Won</th>";
+            html += "            <th>TDS</th>";
+            html += "            <th>Net Qzetos</th>";
             html += "        </tr>";
             response[4].forEach(function (taxation) {
                 var date = moment(taxation.date).format('ddd Do MMM YYYY')
@@ -1912,9 +1912,9 @@ function populateTaxation() {
             html += '    <tr>';
             html += '        <th>Taxation ID</th>';
             html += '        <th>Username</th>';
-            html += '        <th>Quizetos Won</th>';
+            html += '        <th>Qzetos Won</th>';
             html += '        <th>Tax Amount</th>';
-            html += '        <th>Net Quizetos</th>';
+            html += '        <th>Net Qzetos</th>';
             html += '        <th>Mobile</th>';
             html += '        <th>Email</th>';
             html += '        <th>Pancard</th>';
