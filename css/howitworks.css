@@ -1,0 +1,15 @@
+#sideNav {
+  margin-top: 30px;
+}
+
+#sideNav div {
+  background-color: #00b6f2;
+  border-color: #00b6f2;
+  color: #ffffff;
+  border-radius: 0;
+  font-size: 20px !important;
+  line-height: 1.33;
+  padding: 10px 16px;
+  width: 100%;
+  margin-bottom: 5px
+}

@@ -1,0 +1,196 @@
+body {
+  color: initial;
+}
+
+.container-fluid {
+  background: lightblue;
+}
+
+.leaderboardUserImage {
+  max-height: 30px;
+}
+
+#quizMasterQuizDate {
+  width: 60%;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+#quizMasterQuizStartTimeTable {
+  width: 100%;
+  color: black;
+}
+
+#quizMasterQuizStartTimeTable td {
+  border: 1px solid white;
+  text-align: center;
+  padding: 10px;
+}
+
+.selectedTimeSlot {
+  background-color: rgb(156, 255, 176);
+}
+
+.usedTimeSlot {
+  background-color: rgb(255, 193, 193);
+}
+
+#startTimeChangeModal {
+  width: 80%;
+  left: 10%;
+  top: 20px;
+  bottom: 20px;
+}
+
+.timeChangeButtons {
+  background-color: #dddddd;
+}
+
+.modal-body {
+  padding: 20px 50px;
+}
+
+#quizInfoTitle {
+  padding-top: 15px;
+}
+
+#quizInfoTitle #title {
+  text-align: center;
+  display: inline-block;
+  width: 60%;
+  font-weight: bold;
+  color: red;
+  font-size: 15pt;
+  font-family: Arial, sans-serif;
+}
+
+div#quizInfoCountdown * {
+  padding: 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+div#quizInfoCountdown > div:nth-child(1) {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 900;
+}
+
+#quizInfoCountdown .digits {
+  border: 1px solid lightblue;
+  border-radius: 5px;
+  color: white;
+  background-color: red;
+  font-weight: 900;
+  font-size: 1.3em;
+}
+
+#quizInfoInfo table,
+#quizInfoLeader table,
+#quizInfoRegistration table,
+#quizInfoPrizes table,
+#quizInfoRules table,
+#quizInfoQuestions table {
+  width: 100%;
+  background-color: white;
+  height: 17em;
+}
+
+#quizInfoInfo table tr:first-of-type,
+#quizInfoLeader table tr:first-of-type,
+#quizInfoRegistration table tr:first-of-type,
+#quizInfoPrizes table tr:first-of-type,
+#quizInfoRules table tr:first-of-type,
+#quizInfoQuestions table tr:first-of-type {
+  height: 2.5em;
+}
+
+#quizInfoLeader table tr {
+  padding-bottom: 15px;
+}
+
+.scrollable {
+  height: 17em;
+  overflow: auto;
+}
+
+.row {
+  margin-bottom: 20px;
+}
+
+td, th {
+  vertical-align: top;
+  padding-left: 5px;
+}
+
+th {
+  font-size: 14pt;
+  font-weight: 900;
+  color: orange;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+#quizInfoRegistration button {
+  margin: auto;
+  display: block;
+  background: red;
+  font-size: 1.5em;
+  padding: 10px 25px;
+  color: white;
+  border-radius: 0;
+  margin-top: 1em;
+}
+
+#quizInfoRegistration button:disabled {
+  background-color: rgb(112, 3, 3);
+}
+
+#quizInfoRegistration button:disabled:hover {
+  cursor: not-allowed;
+}
+
+.subheading {
+  font-weight: bold;
+  font-family: Calibri, sans-serif;
+  font-size: 12pt;
+}
+
+.value {
+  font-weight: bold;
+  color: green;
+  font-family: Calibri, sans-serif;
+  font-size: 12pt;
+}
+
+.socialButtons {
+  width: 240px;
+  display: inline-block;
+}
+
+.editable {
+  cursor: pointer;
+  background-color: rgb(251, 240, 158);
+}
+
+#quizInfoRegistration {
+  display: none;
+}
+
+#quizInfoInfo,
+#quizInfoLeader,
+#quizInfoRegistration {
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 992px) {
+  #quizInfoPrizes {
+    margin-bottom: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #quizInfoRules {
+    margin-bottom: 1.25rem;
+  }
+}
