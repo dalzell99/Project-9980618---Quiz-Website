@@ -4,6 +4,11 @@
 		<meta charset="utf-8">
 
 		<title>IQzeto</title>
+
+		<meta property="og:title" content="IQzeto">
+		<meta property="og:image" content="https://www.iqzeto.com/images/logo18.png">
+		<meta property="og:description" content="Let your intellect shine away with great rewards">
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="robots" content="index, follow" />
 		<link rel="SHORTCUT ICON" href="images/favicon.png" />
