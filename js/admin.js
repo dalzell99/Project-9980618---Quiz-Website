@@ -748,12 +748,14 @@ function addRandomQuestions() {
 }
 
 function selectTimeSlot(elem) {
-	$(".selectedTimeSlot").removeClass('selectedTimeSlot');
-	$(elem).addClass('selectedTimeSlot');
+	if (!$(elem).hasClass('usedTimeSlot')) {
+		$(".selectedTimeSlot").removeClass('selectedTimeSlot');
+		$(elem).addClass('selectedTimeSlot');
+	}
 }
 
 function disableTimeSlots() {
-	$.get("./php/quizzes/getstarttimefromalladminscheduledquizzes.php", {
+	$.post("./php/quizzes/getstarttimefromalladminscheduledquizzes.php", {
 	}, function(response) {
 		if (response.substr(0, 4) === 'fail') {
 			displayMessage('error', '', 'Error getting the used timeslots. Please use the contact form to inform the web admin of this problem.');
@@ -769,7 +771,8 @@ function disableTimeSlots() {
 				// Check if the quiz is scheduled to start on the date selected by user
 				if (usedTime.format("YYYY-MM-DD") === date) {
 					// If it is then add usedTimeSlot class to the correct time slot for the users timezone and remove the click event for that timeslot
-					$(".ts" + usedTime.format("HH") + usedTime.format("mm")).addClass('usedTimeSlot').prop('onclick', '');
+					// $(".ts" + usedTime.format("HH") + usedTime.format("mm")).addClass('usedTimeSlot').prop('onclick', '');
+					$(".ts" + usedTime.format("HH") + usedTime.format("mm")).addClass('usedTimeSlot');
 				}
 			});
 		}

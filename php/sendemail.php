@@ -17,7 +17,7 @@ function sendEmail($to, $from, $subject, $message) {
 	$mail->FromName = "IQzeto.com";
 
 	foreach ($to as $userEmail) {
-		$mail->addAddress($userEmail);
+		$mail->addBCC($userEmail);
 	}
 
 	$mail->isHTML(true);
