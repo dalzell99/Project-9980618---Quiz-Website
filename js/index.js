@@ -25,13 +25,8 @@ window.onload = function () {
 	});
 
 	$("#userRegisterPhone").intlTelInput({
-		initialCountry: "auto",
-		geoIpLookup: function (callback) {
-			$.get('https://ipinfo.io', function () {}, "jsonp").always(function (resp) {
-				var countryCode = (resp && resp.country) ? resp.country : "";
-				callback(countryCode);
-			});
-		},
+		initialCountry: "in",
+		preferredCountries: "in",
 		utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/8.4.9/js/utils.js"
 	});
 
@@ -44,6 +39,9 @@ window.onload = function () {
 			setTimeout(function () {
 				$("#userRegisterPhoneExplanation").hide();
 			}, 6000);
+		},
+		countrychange: function(e, countryData) {
+			checkMobile();
 		}
 	});
 

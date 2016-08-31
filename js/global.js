@@ -277,6 +277,7 @@ function areInputsValidSignUp() {
 		return [false, 'You need to enter a username'];
 	}
 
+	checkMobile();
 	if ($("#userRegisterPhone").val().length == 0) {
 		return [false, 'You need to enter a phone number'];
 	}
