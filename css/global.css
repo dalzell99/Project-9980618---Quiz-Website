@@ -374,3 +374,13 @@ body {
 		width: 40%;
 	}
 }
+
+@media (max-width: 767px) {
+	.quizDropDown > div {
+		color: white;
+	}
+
+	.navbar-nav .open .dropdown-menu {
+		height: 50px;
+	}
+}

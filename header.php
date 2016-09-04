@@ -205,10 +205,10 @@
 
 											<li class=" dropdown">
 												<a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="images/quiz-icon.png" class="menu-icons">Quizzes<span class="caret"></span></a>
-												<div class="dropdown-menu">
-													<div class='col-xs-4'><a href="quizzes?type=free"> Free Quizzes</a></div>
-													<div class='col-xs-4'><a href="quizzes?type=paid">Paid Quizzes </a></div>
-													<div class='col-xs-4'><a href="quizmaster">Quiz Master</a></div>
+												<div class="dropdown-menu quizDropDown">
+													<div class='col-xs-4' onclick="location.href = 'quizzes?type=free';">Free Quizzes</a></div>
+													<div class='col-xs-4' onclick="location.href = 'quizzes?type=paid';">Paid Quizzes </a></div>
+													<div class='col-xs-4' onclick="location.href = 'quizmaster';">Quiz Master</a></div>
 												</div>
 											</li>
 											<li id='myAccountMenuItem' ><a href="myaccount" class=""><img src="images/account-icon.png" class="menu-icons">My Account</a></li>
